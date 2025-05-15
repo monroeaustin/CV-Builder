@@ -9,9 +9,9 @@ export default function Edit_Side ({formData,handleChange}) {
       <NavBar />
 
       <div className="personal-info">
-        <h4>
+        <h1>
           Personal Details
-        </h4>
+        </h1>
 <Field
   name= "fullName"
   value= {formData.fullName}

@@ -4,7 +4,7 @@ export default function Resume_Side({formData}) {
       <div className="resumewrapper">
         <div className="top-section">
           <h1>{formData.fullName}</h1>
-          <span>{formData.email} | {formData.phoneNumber} | {formData.address}</span>
+          <div className="contact"><span>{formData.email} | {formData.phoneNumber} | {formData.address}</span></div>
         </div>
       </div>
     </div>
