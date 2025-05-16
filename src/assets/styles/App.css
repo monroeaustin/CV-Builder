@@ -132,3 +132,28 @@ input:focus {
   text-align: center;
   color: #9ca3af;
 }
+.button-icon{
+  width: 2em;
+  height: 1.8em;
+  transition: transform 190ms ease-in-out;
+}
+.education-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.button-left{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+}
+.button-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+}
+.button-icon:hover{
+transform: rotate(180deg)
+}
