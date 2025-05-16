@@ -13,6 +13,10 @@ export default function EducationSection() {
           <IoIosArrowDown className="button-icon" />
         </div>
       </button>
+      <div className="modal">
+        <div className="row">London City University</div>
+        <div className="row">Hidden University</div>
+      </div>
     </div>
   );
 }

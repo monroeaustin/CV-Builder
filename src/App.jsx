@@ -8,7 +8,8 @@ function App() {
     fullName: 'Daddy',
     email: 'monroeaustinn@gmail.com',
     phoneNumber: +15104156680,
-    address: 'Richmond, CA'
+    address: 'Richmond, CA',
+    Education: ['London City University','Hidden University']
   });
 
   const handleChange = (e) => {
