@@ -1,8 +1,8 @@
-export default function NavBar(){
+export default function NavBar({onChange}){
 
     return(
         <div className="nav">
-          <button>Clear Resume</button>
+          <button onClick={onChange}>Clear Resume</button>
           <button>Load Example</button>
         </div>
     )

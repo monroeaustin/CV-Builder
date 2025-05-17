@@ -42,7 +42,7 @@ export default function Edit_Side ({formData,handleChange}) {
 />
 
       </div>
-      <EducationSection/>
+      <EducationSection formData={formData}/>
     </div>
   )
 }

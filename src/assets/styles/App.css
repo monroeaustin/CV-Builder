@@ -13,6 +13,33 @@ body {
   line-height: 1.5;
 }
 
+input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  border-bottom: 1px solid #60a5fa;
+  background-color: #1f2937;
+}
+
+input {
+  background-color: #2c2f36;
+  border: 1px solid #3a3d45;
+  padding: 10px;
+  border-radius: 6px;
+  transition: border 0.2s ease;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  background-color: #202125;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+
+
 .App {
   display: flex;
   max-width: 1200px;
@@ -32,6 +59,16 @@ body {
   flex-direction: column;
   gap: 1.5rem;
 }
+
+.resume-side {
+  flex: 2;
+  background-color: #1a1b1e;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+
 
 .nav {
   background-color: #202125;
@@ -56,11 +93,7 @@ body {
   background-color: #3a3d45;
 }
 
-.personal-info h1 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
+
 
 .personal-info {
   display: flex;
@@ -68,52 +101,13 @@ body {
   gap: 1rem;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  background-color: #202125;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  gap: 0.4rem;
-  font-size: 0.9rem;
+.personal-info h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-input {
-  background-color: #2c2f36;
-  border: 1px solid #3a3d45;
-  padding: 10px;
-  border-radius: 6px;
-  transition: border 0.2s ease;
-}
 
-input:focus {
-  outline: none;
-  border-bottom: 1px solid #60a5fa;
-}
-
-.education-section button {
-  width: 100%;
-  padding: 12px;
-  background-color: #2c2f36;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s ease;
-}
-
-.education-section button:hover {
-  background-color: #3a3d45;
-}
-
-.resume-side {
-  flex: 2;
-  background-color: #1a1b1e;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
-}
 
 .top-section {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -135,37 +129,14 @@ input:focus {
   display: flex;
   justify-content: center;
 }
-.contact > div{
+
+.contact > div {
   min-height: 100%;
 }
-.button-icon{
-  width: 2em;
-  height: 1.8em;
-  transition: transform 190ms ease-in-out;
-}
-.education-button{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.button-left{
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
 
-}
-.button-content{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 95%;
-  letter-spacing: 0.1rem;
 
-}
-.button-icon:hover{
-transform: rotate(180deg)
-}
-.education-section{
+
+.education-section {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -173,29 +144,158 @@ transform: rotate(180deg)
   padding: 0.4rem;
   border-radius: 1rem;
 }
-.modal{
-  display:grid;
+
+.education-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.button-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.button-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  letter-spacing: 0.1rem;
+}
+
+.button-icon {
+  width: 2em;
+  height: 1.8em;
+  transition: transform 190ms ease-in-out;
+}
+
+.button-icon:hover {
+  transform: rotate(180deg);
+}
+
+.modal {
+  display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   row-gap: 20px;
   background-color: #1a1b1e;
-  padding: 10px;
-  border-radius: 10px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
-.row{
+
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.edu-row:hover {
+  background: #333333;
+}
+
+.row {
   margin-top: 10px;
   border-top: 3px solid #3a3d45;
 }
 
-input:focus {
-  border-color: #60a5fa;
-  background-color: #1f2937;
+
+
+.experience-group {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 24px;
 }
 
-.svg-icon{
-    vertical-align: middle;
-
+.experience-group h3,
+.experience-group p {
+  font-size: 1rem;
 }
-span{
-  min-height: 100%;
+
+
+
+.region {
+  margin-top: 1rem;
+}
+
+.region h2 {
+  max-width: max-content;
+  margin: auto;
+}
+
+.wrapperlabel {
+  background-color: #2c2f36;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+
+
+.addEducationBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  justify-content: center;
+}
+.group{
+  display: flex;
+}
+.icon {
+  font-size: 1rem;
+  display: inline-block;
+}
+
+
+
+.controll-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-save {
+  background-color: #6c63ff;
+  color: #fff;
+}
+
+.btn-save:hover {
+  background-color: #574fd6;
+}
+
+.btn-cancel {
+  background-color: #2c2c2c;
+  color: #bbb;
+  border: 1px solid #444;
+}
+
+.btn-cancel:hover {
+  background-color: #3a3a3a;
 }

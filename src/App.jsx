@@ -9,7 +9,21 @@ function App() {
     email: 'monroeaustinn@gmail.com',
     phoneNumber: +15104156680,
     address: 'Richmond, CA',
-    Education: ['London City University','Hidden University']
+    Education: [{
+      school:'London City University',
+      Degree:'Bachelors in Economics',
+      StartDate:'08/2020',
+      EndDate:'present',
+      Location:'New York City, US'
+    },
+    {
+      school:'Hidden University',
+      Degree:'Mathematics',
+      StartDate:'08/2020',
+      EndDate:'present',
+      Location:'New York City, US'
+    },
+  ]
   });
 
   const handleChange = (e) => {
@@ -19,7 +33,7 @@ function App() {
       [name]: value
     }));
 
-    console.log(`The State is`, formData);
+    console.log(`The State is`, JSON.stringify(formData))
   };
 
   return (
