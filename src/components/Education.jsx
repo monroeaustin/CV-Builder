@@ -1,19 +1,28 @@
-import { IoIosArrowDown } from "react-icons/io";
-import { FaGraduationCap } from "react-icons/fa";
+
 import EducationRow from './EducationRow';
+import EntryEducation from './EducationEntry';
 import AddEducationButton from './AddEducationButton';
-import EntryEducation from "./EducationEntry";
-import { useState } from "react";
+import { FaGraduationCap } from 'react-icons/fa';
+import { IoIosArrowDown } from 'react-icons/io';
+import { useForm } from './FormContext';
 
+export default function EducationSection() {
+  const {
+    formData,
+    modalVisible,
+    setModalVisible,
+    educationClicked,
+    setEducationClicked
+  } = useForm();
 
-export default function EducationSection({ formData, modalVisibility }) {
-  const [modalVisible, setVisibility] = useState(true)
-  const toggleVisibility = () => {
-    modalVisible ? setVisibility(false) : setVisibility(true)
-  }
+  const toggleSection = () => {
+    setModalVisible((prev) => !prev);
+    setEducationClicked(false); // Reset form view when opening section
+  };
+
   return (
     <div className="education-section">
-      <button className="education-button" onClick={toggleVisibility}>
+      <button className="education-button" onClick={toggleSection}>
         <div className="button-content">
           <div className="button-left">
             <FaGraduationCap className="button-icon" />
@@ -22,9 +31,19 @@ export default function EducationSection({ formData, modalVisibility }) {
           <IoIosArrowDown className="button-icon" />
         </div>
       </button>
-      {modalVisible ? <div className="modal"><EducationRow formData={formData}/></div> : null}
 
-   
+      {modalVisible && (
+        <div className="modal">
+          {educationClicked ? (
+            <EntryEducation />
+          ) : (
+            <>
+              <EducationRow education={formData.Education} />
+              <AddEducationButton />
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

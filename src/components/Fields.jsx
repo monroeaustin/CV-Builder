@@ -1,9 +1,9 @@
-export default function Field({name,value,DoThis,label}){
+export default function Field({name,value,onChange,label}){
 
     return (
         <> <label>
                 {label}
-                <input name= {name} value={value} onChange= {DoThis} />
+                <input name= {name} value={value} onChange= {onChange} />
            </label>           
         </>
     )

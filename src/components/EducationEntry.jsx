@@ -1,44 +1,53 @@
-import Field from "./Fields"
-export default function EntryEducation () {
+import { useState } from 'react';
+import Field from './Fields';
+import { useForm } from './FormContext';
+
+export default function EntryEducation() {
+  const {
+    addEducation,
+    setEducationClicked,
+    setModalVisible
+  } = useForm();
+
+  const [formData, setFormData] = useState({
+    school: '',
+    Degree: '',
+    StartDate: '',
+    EndDate: '',
+    Location: ''
+  });
 
 
-    return(
-        <>
-<Field
-    name="School"
-    value=""
-    label="School"
-/>
-<Field
-    name="Degree"
-    value=""
-    label="Degree"
-/>
-<div className="group">
-    <Field
-    name="StartDate"
-    value=""
-    label="Start Date"
-/>
-<Field
-    name="EndDate"
-    value=""
-    label="End Date"
-/>
-</div>
-<Field
-    name="Location"
-    value=""
-    label="Location"
-/>
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-<div className="controll-btns">
-  <button className="btn btn-save">Save</button>
-  <button className="btn btn-cancel">Cancel</button>
-</div>
-
-</>
-    )
-
+  const handleSave = () => {
+    addEducation(formData);
+    setEducationClicked(false);
     
+  };
+
+  const handleCancel = () => {
+    setEducationClicked(false);
+    setModalVisible(false);
+  };
+
+  return (
+    <>
+      <Field name="school" defaultValue={formData.school} label="School" onChange={handleChange} />
+      <Field name="Degree" defaultValue={formData.Degree} label="Degree" onChange={handleChange} />
+      <div className="group">
+        <Field name="StartDate" defaultValue={formData.StartDate} label="Start Date" onChange={handleChange} />
+        <Field name="EndDate" defaultValue={formData.EndDate} label="End Date" onChange={handleChange} />
+      </div>
+      <Field name="Location" defaultValue={formData.Location} label="Location" onChange={handleChange} />
+
+      <div className="controll-btns">
+        <button className="btn btn-save" onClick={handleSave}>Save</button>
+        <button className="btn btn-cancel" onClick={handleCancel}>Cancel</button>
+      </div>
+    </>
+  );
 }
