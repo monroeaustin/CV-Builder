@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Field from './Fields';
 import { useForm } from './FormContext';
+import {v4 as uuidv4 } from 'uuid';
 
 export default function EntryEducation() {
   const {
@@ -10,6 +11,8 @@ export default function EntryEducation() {
   } = useForm();
 
   const [formData, setFormData] = useState({
+    id: uuidv4(),
+    isVisible: true,
     school: '',
     Degree: '',
     StartDate: '',
@@ -26,6 +29,7 @@ export default function EntryEducation() {
   const handleSave = () => {
     addEducation(formData);
     setEducationClicked(false);
+    console.log(`The ID to this Eduation is ${formData.id}`)
     
   };
 

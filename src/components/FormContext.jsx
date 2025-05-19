@@ -4,25 +4,12 @@ export const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
   const [formData, setFormData] = useState({
-    fullName: 'Daddy',
-    email: 'monroeaustinn@gmail.com',
-    phoneNumber: +15104156680,
-    address: 'Richmond, CA',
+    fullName: '',
+    email: '',
+    phoneNumber: "",
+    address: '',
     Education: [
-      {
-        school: 'London City University',
-        Degree: 'Bachelors in Economics',
-        StartDate: '08/2020',
-        EndDate: 'present',
-        Location: 'New York City, US'
-      },
-      {
-        school: 'Hidden University',
-        Degree: 'Mathematics',
-        StartDate: '08/2020',
-        EndDate: 'present',
-        Location: 'New York City, US'
-      }
+     
     ]
   });
 
@@ -32,6 +19,7 @@ export const FormProvider = ({ children }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    console.log(JSON.stringify(formData))
   };
 
   const addEducation = (newEntry) => {
@@ -58,7 +46,8 @@ export const FormProvider = ({ children }) => {
       phoneNumber: '+1234567890',
       address: 'Sample City, USA',
       Education: [
-        {
+        { id: 0,
+          isVisible: true,
           school: 'Sample University',
           Degree: 'B.A. in Design',
           StartDate: '01/2018',

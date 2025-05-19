@@ -6,6 +6,7 @@ import { useForm } from './FormContext';
 export default function Resume_Side() {
   const { formData } = useForm();
 
+
   return (
     <div className="resume-side">
       <div className="resumewrapper">
@@ -24,17 +25,20 @@ export default function Resume_Side() {
             <h2>Education</h2>
           </div>
           {formData.Education.map((education) => (
-            <div className="experience-group" key={education.school}>
-              <div className="experience-label">
-                <p>{education.StartDate} - {education.EndDate}</p>
-                <p>{education.Location}</p>
+            education.isVisible && (
+              <div className="experience-group" key={education.school}>
+                <div className="experience-label">
+                  <p>{education.StartDate} - {education.EndDate}</p>
+                  <p>{education.Location}</p>
+                </div>
+                <div className="experience-info">
+                  <h3>{education.school}</h3>
+                  <p>{education.Degree}</p>
+                </div>
               </div>
-              <div className="experience-info">
-                <h3>{education.school}</h3>
-                <p>{education.Degree}</p>
-              </div>
-            </div>
+            )
           ))}
+
         </div>
       </div>
     </div>
