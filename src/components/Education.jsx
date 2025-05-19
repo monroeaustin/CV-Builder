@@ -5,7 +5,7 @@ import AddEducationButton from './AddEducationButton';
 import { FaGraduationCap } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useForm } from './FormContext';
-
+import EducationEdit from './EducationEdit';
 export default function EducationSection() {
   const {
     formData,
@@ -33,17 +33,20 @@ export default function EducationSection() {
       </button>
 
       {modalVisible && (
-        <div className="modal">
-          {educationClicked ? (
-            <EntryEducation />
-          ) : (
-            <>
-              <EducationRow education={formData.Education} />
-              <AddEducationButton />
-            </>
-          )}
-        </div>
-      )}
+  <div className="modal">
+    {educationClicked ? (
+      <EntryEducation />
+    ) : formData.Education.some((edu) => edu.isEditing) ? (
+      <EducationEdit />
+    ) : (
+      <>
+        <EducationRow />
+        <AddEducationButton />
+      </>
+    )}
+  </div>
+)}
+
     </div>
   );
 }

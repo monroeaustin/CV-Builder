@@ -6,20 +6,20 @@ export const FormProvider = ({ children }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    phoneNumber: "",
+    phoneNumber: '',
     address: '',
-    Education: [
-     
-    ]
+    Education: [],
+    Experience: []
   });
 
   const [modalVisible, setModalVisible] = useState(false);
   const [educationClicked, setEducationClicked] = useState(false);
+  const [experienceClicked, setExperienceClicked] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    console.log(JSON.stringify(formData))
+    console.log(JSON.stringify(formData));
   };
 
   const addEducation = (newEntry) => {
@@ -29,13 +29,21 @@ export const FormProvider = ({ children }) => {
     }));
   };
 
+  const addExperience = (newEntry) => {
+    setFormData((prev) => ({
+      ...prev,
+      Experience: [...prev.Experience, newEntry]
+    }));
+  };
+
   const clearForm = () => {
     setFormData({
       fullName: '',
       email: '',
       phoneNumber: '',
       address: '',
-      Education: []
+      Education: [],
+      Experience: []
     });
   };
 
@@ -46,13 +54,28 @@ export const FormProvider = ({ children }) => {
       phoneNumber: '+1234567890',
       address: 'Sample City, USA',
       Education: [
-        { id: 0,
+        {
+          id: 0,
+          isEditing: false,
           isVisible: true,
           school: 'Sample University',
           Degree: 'B.A. in Design',
           StartDate: '01/2018',
           EndDate: '01/2022',
           Location: 'San Francisco, CA'
+        }
+      ],
+      Experience: [
+        {
+          id: 0,
+          isEditing: false,
+          isVisible: true,
+          companyName: 'Facebook',
+          positionTitle: 'Software Engineer II',
+          StartDate: '01/2025',
+          EndDate: 'PRESENT',
+          location: 'REMOTE',
+          description: 'Created JSX React Application'
         }
       ]
     });
@@ -64,11 +87,14 @@ export const FormProvider = ({ children }) => {
         formData,
         setFormData,
         handleChange,
-        addEducation,
         modalVisible,
         setModalVisible,
         educationClicked,
         setEducationClicked,
+        experienceClicked,
+        setExperienceClicked,
+        addEducation,
+        addExperience,
         clearForm,
         loadExample
       }}

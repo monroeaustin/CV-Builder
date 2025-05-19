@@ -13,6 +13,7 @@ export default function EntryEducation() {
   const [formData, setFormData] = useState({
     id: uuidv4(),
     isVisible: true,
+    isEditing: false,
     school: '',
     Degree: '',
     StartDate: '',
@@ -47,6 +48,7 @@ export default function EntryEducation() {
         <Field name="EndDate" defaultValue={formData.EndDate} label="End Date" onChange={handleChange} />
       </div>
       <Field name="Location" defaultValue={formData.Location} label="Location" onChange={handleChange} />
+      
 
       <div className="controll-btns">
         <button className="btn btn-save" onClick={handleSave}>Save</button>

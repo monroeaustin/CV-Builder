@@ -223,6 +223,7 @@ label {
   display: flex;
   gap: 18px;
   margin-bottom: 24px;
+  flex-direction: column;
 }
 
 .experience-group h3,

@@ -1,4 +1,5 @@
 import EducationSection from './Education';
+import ExperienceSection from './Experience';
 import { useForm } from './FormContext';
 import NavBar from './Nav-Bar';
 export default function Edit_Side() {
@@ -15,6 +16,8 @@ export default function Edit_Side() {
 
       </div>
       <EducationSection />
+      <ExperienceSection />
+
     </div>
   );
 }
