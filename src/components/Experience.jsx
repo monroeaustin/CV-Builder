@@ -7,6 +7,8 @@ import { useForm } from './FormContext';
 import { FaPlus } from 'react-icons/fa6';
 
 export default function ExperienceSection() {
+
+
   const {
     formData,
     modalVisible2,
@@ -31,7 +33,10 @@ export default function ExperienceSection() {
             <FaGraduationCap className="button-icon" />
             <h3>Work Experience</h3>
           </div>
-          <IoIosArrowDown className="button-icon" />
+          {modalVisible2 ? 
+            <IoIosArrowDown className='rotate button-icon' /> 
+            : <IoIosArrowDown className='button-icon'/>
+          }
         </div>
       </button>
 

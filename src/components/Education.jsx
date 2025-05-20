@@ -33,7 +33,10 @@ export default function EducationSection() {
             <FaGraduationCap className="button-icon" />
             <h3>Education</h3>
           </div>
-          <IoIosArrowDown className="button-icon" />
+          {modalVisible ? 
+            <IoIosArrowDown className='rotate button-icon' /> 
+            : <IoIosArrowDown className='button-icon'/>
+          }
         </div>
       </button>
 
