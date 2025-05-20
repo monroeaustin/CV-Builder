@@ -4,19 +4,23 @@ import ExperienceEdit from './ExperienceEdit';
 import { FaGraduationCap } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useForm } from './FormContext';
+import { FaPlus } from 'react-icons/fa6';
 
 export default function ExperienceSection() {
   const {
     formData,
-    modalVisible,
-    setModalVisible,
+    modalVisible2,
+    setEducationModalVisible,
+    setWorkModalVisible,
+    setExperienceClicked,
     experienceClicked,
-    setExperienceClicked
+ 
   } = useForm();
 
   const toggleSection = () => {
-    setModalVisible((prev) => !prev);
-    setExperienceClicked(false); // Reset form view
+    setWorkModalVisible((prev) => !prev);
+    setExperienceClicked(false);
+    setEducationModalVisible(false)
   };
 
   return (
@@ -31,7 +35,7 @@ export default function ExperienceSection() {
         </div>
       </button>
 
-      {modalVisible && (
+      {modalVisible2 && (
         <div className="modal">
           {experienceClicked ? (
             <EntryExperience />
@@ -41,7 +45,7 @@ export default function ExperienceSection() {
             <>
               <ExperienceRow />
               <button onClick={() => setExperienceClicked(true)} className="addEducationBtn">
-                Add Experience
+                <FaPlus className="icon"/> Experience
               </button>
             </>
           )}

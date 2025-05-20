@@ -10,15 +10,20 @@ export default function EducationSection() {
   const {
     formData,
     modalVisible,
-    setModalVisible,
+    setEducationModalVisible,
+    setWorkModalVisible,
     educationClicked,
-    setEducationClicked
+    setEducationClicked,
+  
   } = useForm();
 
   const toggleSection = () => {
-    setModalVisible((prev) => !prev);
+    setEducationModalVisible((prev) => !prev);
     setEducationClicked(false); // Reset form view when opening section
+    setWorkModalVisible(false)
+    
   };
+
 
   return (
     <div className="education-section">

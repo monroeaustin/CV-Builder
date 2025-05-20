@@ -12,7 +12,9 @@ export const FormProvider = ({ children }) => {
     Experience: []
   });
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setEducationModalVisible] = useState(false);
+  const [modalVisible2, setWorkModalVisible] = useState(false);
+
   const [educationClicked, setEducationClicked] = useState(false);
   const [experienceClicked, setExperienceClicked] = useState(false);
 
@@ -88,9 +90,11 @@ export const FormProvider = ({ children }) => {
         setFormData,
         handleChange,
         modalVisible,
-        setModalVisible,
+        setEducationModalVisible,
+        setWorkModalVisible,
         educationClicked,
         setEducationClicked,
+        modalVisible2,
         experienceClicked,
         setExperienceClicked,
         addEducation,
