@@ -7,7 +7,7 @@ export default function EducationEdit() {
     formData,
     setFormData,
     setModalVisible,
-    setEducationClicked
+    deleteEducation
   } = useForm();
 
   const selectedEdu = formData.Education.find((edu) => edu.isEditing);
@@ -40,6 +40,11 @@ export default function EducationEdit() {
     setModalVisible(false);
   };
 
+const handleDelete = () => {
+  deleteEducation(selectedEdu.id);
+  setModalVisible(false);
+};
+
   return (
     <>
       <Field name="school" value={edited.school} onChange={handleChange} label="School" />
@@ -53,6 +58,9 @@ export default function EducationEdit() {
       <div className="controll-btns">
         <button className="btn btn-save" onClick={handleSave}>Update</button>
         <button className="btn btn-cancel" onClick={handleCancel}>Cancel</button>
+        <button className="btn btn-delete" onClick={handleDelete}>Delete</button>
+
+
       </div>
     </>
   );

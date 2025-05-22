@@ -12,6 +12,19 @@ export const FormProvider = ({ children }) => {
     Experience: []
   });
 
+  const deleteEducation = (id) => {
+  setFormData((prev) => ({
+    ...prev,
+    Education: prev.Education.filter((edu) => edu.id !== id)
+  }));
+};
+const deleteExperience = (id) => {
+  setFormData((prev) => ({
+    ...prev,
+    Experience: prev.Experience.filter((exp) => exp.id !== id)
+  }));
+};
+
   const [modalVisible, setEducationModalVisible] = useState(false);
   const [modalVisible2, setWorkModalVisible] = useState(false);
 
@@ -100,7 +113,9 @@ export const FormProvider = ({ children }) => {
         addEducation,
         addExperience,
         clearForm,
-        loadExample
+        loadExample,
+        deleteEducation,
+        deleteExperience
       }}
     >
       {children}

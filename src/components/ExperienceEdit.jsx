@@ -6,7 +6,8 @@ export default function ExperienceEdit() {
   const {
     formData,
     setFormData,
-    setModalVisible
+    setModalVisible,
+    deleteExperience
   } = useForm();
 
   const selected = formData.Experience.find((exp) => exp.isEditing);
@@ -39,6 +40,11 @@ export default function ExperienceEdit() {
     setModalVisible(false);
   };
 
+  const handleDelete = () => {
+  deleteExperience(selected.id);
+  setModalVisible(false);
+};
+
   return (
     <>
       <Field name="companyName" value={edited.companyName} onChange={handleChange} label="Company" />
@@ -52,6 +58,8 @@ export default function ExperienceEdit() {
       <div className="controll-btns">
         <button className="btn btn-save" onClick={handleSave}>Update</button>
         <button className="btn btn-cancel" onClick={handleCancel}>Cancel</button>
+        <button className="btn btn-delete" onClick={handleDelete}>Delete</button>
+
       </div>
     </>
   );
