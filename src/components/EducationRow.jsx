@@ -1,5 +1,7 @@
 import { FaRegEye } from "react-icons/fa";
 import { useForm } from './FormContext';
+import { useState } from "react";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
 export default function EducationRow() {
   const { formData, setFormData, setModalVisible } = useForm();
@@ -11,6 +13,7 @@ export default function EducationRow() {
         edu.id === id ? { ...edu, isVisible: !edu.isVisible } : edu
       )
     }));
+  setVisible(visible ? false : true);
   };
 
   const editEducation = (id) => {
@@ -23,6 +26,7 @@ export default function EducationRow() {
     setModalVisible(true);
   };
 
+  const [visible,setVisible] = useState(true)
   return (
     <>
       {formData.Education.map((education, index) => (
@@ -35,7 +39,12 @@ export default function EducationRow() {
             onClick={() => toggleVisible(education.id)}
             id={education.id}
           >
-            <FaRegEye />
+            {
+            visible ? <FaRegEye /> : 
+            <FaRegEyeSlash />
+
+}
+
           </button>
         </div>
       ))}

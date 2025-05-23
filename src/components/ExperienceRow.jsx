@@ -1,8 +1,11 @@
 import { FaRegEye } from "react-icons/fa";
 import { useForm } from './FormContext';
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { useState } from "react";
 
 export default function ExperienceRow() {
   const { formData, setFormData, setModalVisible } = useForm();
+  const [visible,setVisible] = useState(true)
 
   const toggleVisible = (id) => {
     setFormData((prev) => ({
@@ -11,6 +14,7 @@ export default function ExperienceRow() {
         exp.id === id ? { ...exp, isVisible: !exp.isVisible } : exp
       )
     }));
+  setVisible(visible ? false : true);
   };
 
   const editExperience = (id) => {
@@ -35,7 +39,8 @@ export default function ExperienceRow() {
             onClick={() => toggleVisible(exp.id)}
             id={exp.id}
           >
-            <FaRegEye />
+            { visible ? <FaRegEye /> :
+            <FaRegEyeSlash /> }
           </button>
         </div>
       ))}
